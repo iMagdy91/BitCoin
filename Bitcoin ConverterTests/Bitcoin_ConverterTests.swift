@@ -10,25 +10,41 @@ import XCTest
 @testable import Bitcoin_Converter
 
 class Bitcoin_ConverterTests: XCTestCase {
-
+    
+    var bitcoinListViewModel: BitcoinListViewModel?
+    var bitcoinDetailViewModel: BitcoinDetailsViewModel?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testHistoryList() {
+        let expectation = self.expectation(description: "BitcoinList")
+        //For ideal scenarios, use mock Client
+        bitcoinListViewModel = BitcoinListViewModel(client: HttpClient(), completion: { (bitcoinList, error) in
+            XCTAssertNil(error)
+            XCTAssert(bitcoinList?.count == 15)
+            expectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testRateDetail() {
+        let expectation = self.expectation(description: "BitcoinDetail")
+        //For ideal scenarios, use mock Client
+        bitcoinDetailViewModel = BitcoinDetailsViewModel(client: HttpClient(), rateDate: Date(), bitcoinDetailViewModelCompletion: { (bitcoinDetailModel, error) in
+            XCTAssertNil(error)
+            XCTAssert(Calendar.current.isDateInToday(bitcoinDetailModel?.rateDate ?? Date.yesterday))
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 10.0, handler: nil)
+
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
 
 }

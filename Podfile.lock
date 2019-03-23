@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Bond (7.2.1):
+    - Differ (~> 1.3)
+    - ReactiveKit (~> 3.9)
+  - Differ (1.3.0)
+  - EVReflection (5.10.0):
+    - EVReflection/Core (= 5.10.0)
+  - EVReflection/Core (5.10.0)
+  - ReactiveKit (3.9.7)
+
+DEPENDENCIES:
+  - Alamofire
+  - Bond
+  - EVReflection
+  - ReactiveKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Bond
+    - Differ
+    - EVReflection
+    - ReactiveKit
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Bond: 663dd8da3eccadb4d7d57243499d387f9976580d
+  Differ: 9fcee7602542d7c6484ce05a0faec1c11258ed63
+  EVReflection: 1abc1a81927ab0d30170238cf9b79bff489e9728
+  ReactiveKit: 5f4c440715d671901c382ae6b42ed3337ce4699b
+
+PODFILE CHECKSUM: f584c8813ddbda7a34b541e0aa8c78e9c036b078
+
+COCOAPODS: 1.6.1
